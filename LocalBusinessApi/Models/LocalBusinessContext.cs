@@ -14,11 +14,11 @@ namespace LocalBusinessApi.Models
     {
       builder.Entity<Restaurant>()
         .HasData(
-          new Restaurant { RestaurantId = 1, Name = "RedWood" },
-          new Restaurant { RestaurantId = 2, Name = "Woods Man" },
-          new Restaurant { RestaurantId = 3, Name = "Wayan" },
-          new Restaurant { RestaurantId = 4, Name = "Sweet Basil" },
-          new Restaurant { RestaurantId = 5, Name = "Los Gorditos" }
+          new Restaurant { RestaurantId = 1, RestaurantName = "RedWood", RestaurantCity = "Portland", Review = "Great breakFast Place", Rating = "8"},
+          new Restaurant { RestaurantId = 2, RestaurantName = "Woods Man",RestaurantCity = "San Francisco", Review = "best seafood in town", Rating = "9" },
+          new Restaurant { RestaurantId = 3, RestaurantName = "Wayan", RestaurantCity = "Seatle", Review = "If you are loking for full bar this is the pplace for you", Rating = "7" },
+          new Restaurant { RestaurantId = 4, RestaurantName = "Sweet Basil", RestaurantCity = "Portland", Review = "Great Thai food and fast service", Rating = "6" },
+          new Restaurant { RestaurantId = 5, RestaurantName = "Tap & Barrel", RestaurantCity = "Vancouver", Review = "Awesome beer and great view of the harbor", Rating = "10" }
         );
     }    
   }
