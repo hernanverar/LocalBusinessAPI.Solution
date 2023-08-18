@@ -4,7 +4,7 @@
 ## By Hernan Verar
 
 # Description 
-A ASP.NET Core Web API that gets list of restaurant and shops.  User can update,edit and delete from both Restaurants and Shops databases.  User can generate access token for already created user in the db.  Performing a POST call in either swagger or POSTMAN.
+A ASP.NET Core Web API that gets list of restaurants.  User can update,edit and delete from both Restaurants and Shops databases.  User can generate access token for already created user in the db.  Performing a POST call in either swagger or POSTMAN.
 
 ## Technologies Used
 * C#
