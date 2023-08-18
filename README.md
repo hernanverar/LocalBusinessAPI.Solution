@@ -21,10 +21,33 @@ A ASP.NET Core Web API that gets list of restaurant and shops.  User can update,
 ## Setup/Installation Req's:
 
 ### Set Up and Run Project
-1. Clone this repo. https://github.com/hernanverar/Dr_SillyStringz-s.Solution.git
+1. Clone this repo. https://github.com/hernanverar/LocalBusinessAPI.Solution.git
 2. Open the terminal and navigate to this project's production directory called "Factory".
-3. Within the production directory "LocalBusinesApi", create a new file called `appsettings.json`.
-4. Within `appsettings.json`, put in the following code, replacing the `uid` and `pwd` values with your own username and password for MySQL. For the LearnHowToProgram.com lessons, we always assume the `uid` is `root` and the `pwd` is `epicodus`.
+3. Complete setup/Installation instructions:
+4. Clone repository to your desktop 
+5. CD to the Directory: LocalBusinessApi
+6. While in the current directory [LocalBusinessApi]  
+7. Create appsettings.json file ![example for appsettings file](appsettings_image.png)
+8. Replace the following values shown in image with: 
+9. [securitykey]: your security key
+10. [YOUR-DB-NAME]: database included in project
+11. [YOUR-USER-HERE]: with your username
+12. [YOUR-PASSWORD-HERE]: with your password
+13. Create anohter file called: appsettings.Development.json ![example for appsettings development file] (appsettings_development.png) 
+* Enter in command: 'dotnet ef database update'
+* Add the appsettings.json and appsettings.Development.json file to .gitignore.
+* To view web application. Run commands: dotnet watch run 
+* Open the browser, go to https://localhost:5001
+# Further Exploration:
+* Open browser to launch _https://localhost:5001/swagger
+* Go to User Post section, click the 'Try it Out' button. 
+* Replace the strings with "admin" and "password" to generate token. 
+* Copy generated token, open Postman
+* Make a GET call in Postman. 
+* Enter http://localhost:5000/api/Restaurants
+* In the Headers options enter "Authorization" for the Key field. 
+* In the value field enter: "bearer [Generated Token From Swagger]", Click Send
+
 
 5. Run ```dotnet watch run``` to view the project in your web browser. Enter your computer password when prompted.
 
@@ -33,9 +56,15 @@ A ASP.NET Core Web API that gets list of restaurant and shops.  User can update,
 
 In your terminal- in the project directory (LocalBusinessAPI.Solution/LocalBusinessApi), run ```dotnet ef database update```
 
+# Local Business API ENDPOINTS:
+* GET - http://localhost:5000/api/Restaurants/ for all the restaurants
+* GET - http://localhost:5000/api/Restaurants{id} for a specific restaurant
+* POST http://localhost:5000/api/Restaurants/ to create a new restaurant 
+* POST http://localhost:5000/api/Restaurants/ to create a new restaurant 
+* POST http://localhost:5000/api/Restaurants/ to create a new restaurant 
 
-
-
+# Known bugs: 
+  Swager not responding WIP
 
 # License; MIT License
 
