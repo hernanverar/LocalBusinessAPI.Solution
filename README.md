@@ -1,10 +1,11 @@
+
 # LocalBusiness.Solution
 
 
 ## By Hernan Verar
 
 # Description 
-A ASP.NET Core Web API that gets list of restaurants.  User can update,edit and delete from both Restaurants and Shops databases.  User can generate access token for already created user in the db.  Performing a POST call in either swagger or POSTMAN.
+A ASP.NET Core Web API that gets list of restaurant and shops.  User can update,edit and delete from both Restaurants and Shops databases.  User can generate access token for already created user in the db.  Performing a POST call in either swagger or POSTMAN.
 
 ## Technologies Used
 * C#
@@ -22,13 +23,31 @@ A ASP.NET Core Web API that gets list of restaurants.  User can update,edit and 
 
 ### Set Up and Run Project
 1. Clone this repo. https://github.com/hernanverar/LocalBusinessAPI.Solution.git
-2. Open the terminal and navigate to this project's production directory called "Factory".
+2. Open the terminal and navigate to this project's production directory called [LocalBusinessApi].
 3. Complete setup/Installation instructions:
 4. Clone repository to your desktop 
 5. CD to the Directory: LocalBusinessApi
 6. While in the current directory [LocalBusinessApi]  
-7. Create appsettings.json file ![example for appsettings file](appsettings_image.png)
-8. Replace the following values shown in image with: 
+7. Create (appsettings.json) file 
+ 
+  {
+  "Appsettings": {
+    "Token":"This is my token please do not touch, use  or see"
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*",
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=localhost;Port=3306;database{DATABASE-NAME};uid={USER-NAME};pwd={PASSWORD};"
+  }
+}
+
+
+8. Replace the following values shown in with: 
 9. [securitykey]: your security key
 10. [YOUR-DB-NAME]: database included in project
 11. [YOUR-USER-HERE]: with your username
@@ -49,7 +68,7 @@ A ASP.NET Core Web API that gets list of restaurants.  User can update,edit and 
 * In the value field enter: "bearer [Generated Token From Swagger]", Click Send
 
 
-5. Run ```dotnet watch run``` to view the project in your web browser. Enter your computer password when prompted.
+* Run ```dotnet watch run``` to view the project in your web browser. Enter your computer password when prompted.
 
 
 ### Set up the Databases
@@ -58,10 +77,9 @@ In your terminal- in the project directory (LocalBusinessAPI.Solution/LocalBusin
 
 # Local Business API ENDPOINTS:
 * GET - http://localhost:5000/api/Restaurants/ for all the restaurants
-* GET - http://localhost:5000/api/Restaurants{id} for a specific restaurant
-* POST http://localhost:5000/api/Restaurants/ to create a new restaurant 
-* POST http://localhost:5000/api/Restaurants/ to create a new restaurant 
-* POST http://localhost:5000/api/Restaurants/ to create a new restaurant 
+* POST - http://localhost:5000/api/Restaurants{id} for a specific restaurant
+* POST - http://localhost:5000/api/Restaurants/ to create a new restaurant 
+
 
 # Known bugs: 
   Swager not responding WIP
