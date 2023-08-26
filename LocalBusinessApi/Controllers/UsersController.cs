@@ -1,14 +1,10 @@
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.Security.Cryptography;
 using System.Text;
-using System;
-using System.Threading.Tasks;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using System.Collections.Generic;
+
 
 namespace LocalBusinessApi.Controllers
 {
@@ -16,8 +12,8 @@ namespace LocalBusinessApi.Controllers
   [ApiController]
   public class UsersController : ControllerBase
   {
+    public static User user = new User();
     private readonly IConfiguration _configuration;
-    private readonly JwtSecurityTokenHandler _jwtTokenHandler = new JwtSecurityTokenHandler();
 
     public UsersController(IConfiguration configuration)
     {
@@ -38,46 +34,46 @@ namespace LocalBusinessApi.Controllers
 
         return user;
       });
-      
+
       return Ok(result);
     }
 
 
-[HttpPost("login")]
-public ActionResult<string> Login(UserObject userLoggingIn)
-{
-    var user = new User();
-    if (user.Username != userLoggingIn.Username)
+    [HttpPost("login")]
+    public ActionResult<string> Login(UserObject userLoggingIn)
     {
+      var user = new User();
+      if (user.Username != userLoggingIn.Username)
+      {
         return BadRequest("User not found.");
-    }
-    if (!VerifyPasswordHash(userLoggingIn.Password, user.PasswordHash, user.PasswordSalt))
-    {
+      }
+      if (!VerifyPasswordHash(userLoggingIn.Password, user.PasswordHash, user.PasswordSalt))
+      {
         return BadRequest("Wrong password.");
+      }
+
+      string token = CreateToken(user);
+      return Ok(token);
     }
-
-    string token = CreateToken(user);
-    return Ok(token);
-}
-
 
     private string CreateToken(User user)
     {
       List<Claim> claims = new List<Claim>
             {
-                new Claim(ClaimTypes.Name, user.Username)
+            new Claim(ClaimTypes.Name, user.Username)
             };
-      var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration.GetSection("AppSettings:Token").Value));
-      var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512);
-
+      var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(_configuration.GetSection("AppSettings:Token").Value));
+      var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
       var token = new JwtSecurityToken(
           claims: claims,
           expires: DateTime.Now.AddDays(1),
           signingCredentials: creds);
 
-      var jwt = _jwtTokenHandler.WriteToken(token);
+      var jwt = new JwtSecurityTokenHandler().WriteToken(token);
+
       return jwt;
     }
+
 
     private void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
     {

@@ -1,3 +1,4 @@
+using System.Security.Cryptography;
 using LocalBusinessApi.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -31,7 +32,10 @@ namespace LocalBusinessApi.Controllers
       {
         query = query.Where(entry => entry.RestaurantCity == restaurantCity);
       }
-    
+      if (rating > 0)
+      {
+        query = query.Where(entry => entry.Rating == rating);
+      }
       var restaurants = await query.ToListAsync();
 
       if (restaurants.Count == 0)

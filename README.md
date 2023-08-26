@@ -29,8 +29,9 @@ A ASP.NET Core Web API that gets list of restaurant and shops.  User can update,
 5. CD to the Directory: LocalBusinessApi
 6. While in the current directory [LocalBusinessApi]  
 7. Create (appsettings.json) file 
- 
-  {
+
+``````
+{
   "Appsettings": {
     "Token":"This is my token please do not touch, use  or see"
   },
@@ -45,7 +46,7 @@ A ASP.NET Core Web API that gets list of restaurant and shops.  User can update,
     "DefaultConnection": "Server=localhost;Port=3306;database{DATABASE-NAME};uid={USER-NAME};pwd={PASSWORD};"
   }
 }
-
+``````
 
 8. Replace the following values shown in with: 
 9. [securitykey]: your security key
