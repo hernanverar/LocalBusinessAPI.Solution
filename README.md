@@ -59,10 +59,7 @@ A ASP.NET Core Web API that gets list of restaurant and shops.  User can update,
 * To view web application. Run commands: dotnet watch run 
 * Open the browser, go to https://localhost:5001
 # Further Exploration:
-* Open browser to launch _https://localhost:5001/swagger
-* Go to User Post section, click the 'Try it Out' button. 
-* Replace the strings with "admin" and "password" to generate token. 
-* Copy generated token, open Postman
+* Open browser to launch _https://localhost:5001/swagger  
 * Make a GET call in Postman. 
 * Enter http://localhost:5000/api/Restaurants
 * In the Headers options enter "Authorization" for the Key field. 
@@ -77,9 +74,26 @@ A ASP.NET Core Web API that gets list of restaurant and shops.  User can update,
 In your terminal- in the project directory (LocalBusinessAPI.Solution/LocalBusinessApi), run ```dotnet ef database update```
 
 # Local Business API ENDPOINTS:
-* GET - http://localhost:5000/api/Restaurants/ for all the restaurants
-* POST - http://localhost:5000/api/Restaurants{id} for a specific restaurant
-* POST - http://localhost:5000/api/Restaurants/ to create a new restaurant 
+ 
+* GET - http://localhost:5000/api/Restaurants: Retrieve a list of all restaurants.
+
+* GET - http://localhost:5000/api/Restaurants/{id}: Retrieve a specific restaurant.
+
+* POST - http://localhost:5000/api/Restaurants: Create a new restaurant.
+
+* PUT - http://localhost:5000/api/Restaurants/{id}: Update a specific restaurant.
+
+* DELETE - http://localhost:5000/api/Restaurants/{id}: Delete a specific restaurant.
+
+* GET - http://localhost:5000/api/Parlors: Retrieve a list of all parlors.
+
+* GET - http://localhost:5000/api/Parlors/{id}: Retrieve a specific parlor.
+
+* POST - http://localhost:5000/api/Parlors: Create a new parlor.
+
+* PUT - http://localhost:5000/api/Parlors/{id}: Update a specific parlor.
+
+* DELETE - http://localhost:5000/api/Parlors/{id}: Delete a specific parlor.
 
 
 # Known bugs: 
